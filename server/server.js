@@ -42,6 +42,15 @@ const uri = process.env.MONGODB_URI;
 console.log("VARIABLE EXISTE:", Boolean(uri));
 console.log("FORMATO SRV:", uri && uri.startsWith("mongodb+srv://"));
 console.log("LONGITUD:", uri ? uri.length : 0);
+try {
+  const datos = new URL(uri);
+  console.log("USUARIO:", datos.username.length);
+  console.log("PASSWORD:", datos.password.length);
+  console.log("BASE DE DATOS:", datos.pathname);
+  console.log("PARAMETROS:", datos.search);
+} catch (error) {
+  console.log("URI INVALIDA");
+}
 
 await mongoose.connect(uri);
 
