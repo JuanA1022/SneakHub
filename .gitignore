@@ -1,0 +1,9 @@
+﻿# Dependencias
+node_modules/
+
+# Variables privadas
+.env
+.env.*
+
+# Archivos locales
+.DS_Store

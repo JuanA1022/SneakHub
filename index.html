@@ -1,69 +1,382 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SneakHub</title>
-
+    <meta name="description" content="SneakHub: encuentra tus sneakers favoritos.">
+    <meta name="theme-color" content="#080b0a">
+    <title>SneakHub | Sneakers que marcan estilo</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
-<header>
-    <h1>👟 SneakHub</h1>
+    <!-- ENCABEZADO -->
+    <header class="site-header" id="inicio">
+        <div class="contenedor-header">
 
-    <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Catálogo</a>
-        <a href="#">Ofertas</a>
-        <a href="#">Contacto</a>
-        <a href="#">Login</a>
-    </nav>
-</header>
+            <a href="#inicio" class="logo">
+                Sneak<span>Hub</span><small>.</small>
+            </a>
 
-<section class="hero">
-    <h2>Descubre tu próximo par favorito 👟</h2>
+            <nav class="nav-principal">
+                <a href="#inicio">Inicio</a>
+                <a href="#catalogo">Catálogo</a>
+                <a href="#ofertas">Colección</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
 
-    <p>
-       <p>
-    Compra los mejores sneakers de Nike, Jordan y Adidas con los mejores precios y el mejor estilo urbano.
-</p>
-    </p>
+            <button type="button" class="boton-carrito" id="carrito"
+                aria-controls="lista-carrito" aria-expanded="false">
+                🛒 Carrito
+                <span class="contador-carrito" id="contador-carrito">0</span>
+            </button>
 
-    <button>Comprar ahora</button>
-</section>
-<section class="productos">
+        </div>
+    </header>
 
-    <h2>🔥 Productos Destacados</h2>
+    <main>
 
-    <div class="contenedor-productos">
+        <!-- PORTADA -->
+        <section class="hero">
+            <div class="hero-capa"></div>
 
-        <div class="producto">
-            <img src="img/jordan1.jpg" alt="Jordan 1 Retro">
-            <h3>👟 Jordan 1 Retro</h3>
-            <p>$699.900</p>
-            <button>Comprar</button>
+            <div class="hero-contenido">
+                <p class="etiqueta">SNEAKHUB / STREETWEAR CULTURE</p>
+
+                <h1>
+                    Tu estilo.<br>
+                    Tus reglas.<br>
+                    <span>Tus sneakers.</span>
+                </h1>
+
+                <p class="hero-descripcion">
+                    Descubre los pares que definen tu estilo.
+                    Encuentra tus favoritos y lleva tu outfit
+                    al siguiente nivel.
+                </p>
+
+                <a href="#catalogo" class="boton-principal">
+                    Explorar colección ↗
+                </a>
+
+                <div class="hero-nota">
+                    <span class="punto-verde"></span>
+                    ESTILO URBANO. ACTITUD PROPIA.
+                </div>
+            </div>
+
+            <div class="hero-numero">01<span>/09</span></div>
+        </section>
+
+        <!-- CATÁLOGO -->
+        <section id="catalogo" class="seccion-productos">
+
+            <div class="encabezado-catalogo">
+                <div class="titulo-seccion">
+                    <p class="etiqueta">SELECCIÓN SNEAKHUB</p>
+
+                    <h2>
+                        Encuentra tu <span>próximo par.</span>
+                    </h2>
+
+                    <p>Nueve modelos para llevar tu estilo a otro nivel.</p>
+                </div>
+
+                <div class="buscador-contenedor">
+                    <span>⌕</span>
+                    <input
+                        type="search"
+                        id="buscador-productos"
+                        class="buscador"
+                        placeholder="Buscar sneakers..."
+                        aria-label="Buscar sneakers"
+                    >
+                </div>
+            </div>
+
+            <div class="catalogo-meta">
+                <span>CATÁLOGO <strong>/</strong>
+                    <span id="cantidad-productos">09 MODELOS</span>
+                </span>
+                <span>PRECIOS EN PESOS COLOMBIANOS</span>
+            </div>
+
+            <div id="productos" class="productos">
+
+                <!-- JORDAN 1 -->
+                <article class="producto">
+                    <div class="producto-imagen">
+                        <span class="producto-etiqueta">CLÁSICO</span>
+                        <img src="img/jordan1.jpg" alt="Jordan 1 Retro">
+                    </div>
+
+                    <div class="producto-info">
+                        <p class="marca">JORDAN</p>
+                        <h3>Jordan 1 Retro</h3>
+                        <p class="descripcion-producto">Un clásico del estilo urbano.</p>
+
+                        <div class="producto-pie">
+                            <p class="precio">$699.900 <small>COP</small></p>
+                            <button class="comprar" data-producto="Jordan 1 Retro"
+                                data-precio="699900">Agregar <span>＋</span></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- AIR FORCE 1 -->
+                <article class="producto">
+                    <div class="producto-imagen">
+                        <span class="producto-etiqueta">ESSENTIAL</span>
+                        <img src="img/airforce1.jpg" alt="Nike Air Force 1">
+                    </div>
+
+                    <div class="producto-info">
+                        <p class="marca">NIKE</p>
+                        <h3>Nike Air Force 1</h3>
+                        <p class="descripcion-producto">Diseño atemporal para todos los días.</p>
+
+                        <div class="producto-pie">
+                            <p class="precio">$549.900 <small>COP</small></p>
+                            <button class="comprar" data-producto="Nike Air Force 1"
+                                data-precio="549900">Agregar <span>＋</span></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- AIR MAX 90 -->
+                <article class="producto">
+                    <div class="producto-imagen">
+                        <span class="producto-etiqueta">RUNNING STYLE</span>
+                        <img src="img/airmax90.jpg" alt="Nike Air Max 90">
+                    </div>
+
+                    <div class="producto-info">
+                        <p class="marca">NIKE</p>
+                        <h3>Nike Air Max 90</h3>
+                        <p class="descripcion-producto">Un icono deportivo con actitud urbana.</p>
+
+                        <div class="producto-pie">
+                            <p class="precio">$599.900 <small>COP</small></p>
+                            <button class="comprar" data-producto="Nike Air Max 90"
+                                data-precio="599900">Agregar <span>＋</span></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CAMPUS 00S -->
+                <article class="producto">
+                    <div class="producto-imagen">
+                        <span class="producto-etiqueta">RETRO</span>
+                        <img src="img/campus00.jpg" alt="Adidas Campus 00s">
+                    </div>
+
+                    <div class="producto-info">
+                        <p class="marca">ADIDAS</p>
+                        <h3>Adidas Campus 00s</h3>
+                        <p class="descripcion-producto">Inspiración retro con actitud moderna.</p>
+
+                        <div class="producto-pie">
+                            <p class="precio">$479.900 <small>COP</small></p>
+                            <button class="comprar" data-producto="Adidas Campus 00s"
+                                data-precio="479900">Agregar <span>＋</span></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- JORDAN 4 -->
+                <article class="producto">
+                    <div class="producto-imagen">
+                        <span class="producto-etiqueta">JORDAN</span>
+                        <img src="img/jordan4.jpg" alt="Jordan 4">
+                    </div>
+
+                    <div class="producto-info">
+                        <p class="marca">JORDAN</p>
+                        <h3>Jordan 4</h3>
+                        <p class="descripcion-producto">Presencia y carácter en cada paso.</p>
+
+                        <div class="producto-pie">
+                            <p class="precio">$899.900 <small>COP</small></p>
+                            <button class="comprar" data-producto="Jordan 4"
+                                data-precio="899900">Agregar <span>＋</span></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- NIKE DUNK LOW -->
+                <article class="producto">
+                    <div class="producto-imagen">
+                        <span class="producto-etiqueta">STREET ICON</span>
+                        <img src="img/nikedunk.jpg" alt="Nike Dunk Low">
+                    </div>
+
+                    <div class="producto-info">
+                        <p class="marca">NIKE</p>
+                        <h3>Nike Dunk Low</h3>
+                        <p class="descripcion-producto">Un diseño icónico para destacar.</p>
+
+                        <div class="producto-pie">
+                            <p class="precio">$499.900 <small>COP</small></p>
+                            <button class="comprar" data-producto="Nike Dunk Low"
+                                data-precio="499900">Agregar <span>＋</span></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- NEW BALANCE 550 -->
+                <article class="producto">
+                    <div class="producto-imagen">
+                        <span class="producto-etiqueta">MINIMAL</span>
+                        <img src="img/newbalance550.jpg" alt="New Balance 550">
+                    </div>
+
+                    <div class="producto-info">
+                        <p class="marca">NEW BALANCE</p>
+                        <h3>New Balance 550</h3>
+                        <p class="descripcion-producto">Una silueta clásica para combinar fácil.</p>
+
+                        <div class="producto-pie">
+                            <p class="precio">$579.900 <small>COP</small></p>
+                            <button class="comprar" data-producto="New Balance 550"
+                                data-precio="579900">Agregar <span>＋</span></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ADIDAS FORUM -->
+                <article class="producto">
+                    <div class="producto-imagen">
+                        <span class="producto-etiqueta">ORIGINAL</span>
+                        <img src="img/adidasforum.jpg" alt="Adidas Forum">
+                    </div>
+
+                    <div class="producto-info">
+                        <p class="marca">ADIDAS</p>
+                        <h3>Adidas Forum</h3>
+                        <p class="descripcion-producto">Herencia del básquet con vibra streetwear.</p>
+
+                        <div class="producto-pie">
+                            <p class="precio">$529.900 <small>COP</small></p>
+                            <button class="comprar" data-producto="Adidas Forum"
+                                data-precio="529900">Agregar <span>＋</span></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ADIDAS SUPERSTAR -->
+                <article class="producto">
+                    <div class="producto-imagen">
+                        <span class="producto-etiqueta">ICON</span>
+                        <img src="img/superstar.jpg" alt="Adidas Superstar">
+                    </div>
+
+                    <div class="producto-info">
+                        <p class="marca">ADIDAS</p>
+                        <h3>Adidas Superstar</h3>
+                        <p class="descripcion-producto">Un básico que nunca pasa de moda.</p>
+
+                        <div class="producto-pie">
+                            <p class="precio">$399.900 <small>COP</small></p>
+                            <button class="comprar" data-producto="Adidas Superstar"
+                                data-precio="399900">Agregar <span>＋</span></button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <p id="sin-resultados" class="sin-resultados" hidden>
+                No encontramos sneakers con ese nombre.
+            </p>
+        </section>
+
+        <!-- COLECCIÓN -->
+        <section id="ofertas" class="banner-coleccion">
+            <div class="banner-coleccion-contenido">
+                <p class="etiqueta">TU PRÓXIMO PAR TE ESPERA</p>
+                <h2>El estilo no se improvisa<span>.</span></h2>
+                <p>Encuentra el modelo que va contigo y construye tu propio estilo.</p>
+                <a href="#catalogo" class="boton-principal">
+                    Ver toda la colección ↗
+                </a>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contacto" class="seccion-contacto">
+            <div>
+                <p class="etiqueta">¿NECESITAS AYUDA?</p>
+                <h2>Hablemos de sneakers.</h2>
+                <p>¿Tienes preguntas sobre nuestra colección?
+                    Explora nuestros modelos y encuentra tu favorito.</p>
+            </div>
+
+            <a class="boton-secundario" href="#catalogo">
+                Explorar catálogo ↗
+            </a>
+        </section>
+
+        <!-- INFORMACIÓN -->
+        <section class="seccion-cuenta">
+            <p class="etiqueta">BIENVENIDO A SNEAKHUB</p>
+            <h2>Tu cultura. Tu colección.</h2>
+            <p>El estilo se construye paso a paso. Encuentra el par que habla por ti.</p>
+        </section>
+
+    </main>
+
+    <!-- FONDO DEL CARRITO -->
+    <div class="overlay" id="overlay" hidden></div>
+
+    <!-- CARRITO -->
+    <aside class="panel-carrito" id="lista-carrito"
+        aria-label="Carrito de compras" aria-hidden="true" inert>
+
+        <div class="carrito-encabezado">
+            <div>
+                <p class="etiqueta">SNEAKHUB BAG</p>
+                <h2>Tu carrito <span>。</span></h2>
+            </div>
+
+            <button type="button" id="cerrar-carrito"
+                class="cerrar-carrito" aria-label="Cerrar carrito">×</button>
         </div>
 
-        <div class="producto">
-            <img src="img/airforce1.jpg" alt="Nike Air Force 1">
-            <h3>👟 Nike Air Force 1</h3>
-            <p>$549.900</p>
-            <button>Comprar</button>
+        <p id="carrito-vacio" class="carrito-vacio">
+            Tu carrito está vacío. ¡Encuentra tu próximo par!
+        </p>
+
+        <ul id="productos-carrito" class="lista-productos-carrito"></ul>
+
+        <div class="carrito-pie">
+            <div class="fila-total">
+                <span>Total</span>
+                <strong id="total">$0 COP</strong>
+            </div>
+
+            <button type="button" id="vaciar-carrito" class="vaciar-carrito">
+                Vaciar carrito
+            </button>
+
+            <p class="nota-carrito">
+                Proyecto académico. Todavía no se procesan pagos.
+            </p>
         </div>
+    </aside>
 
-        <div class="producto">
-            <img src="img/campus00.jpg" alt="Adidas Campus 00s">
-            <h3>👟 Adidas Campus 00s</h3>
-            <p>$479.900</p>
-            <button>Comprar</button>
-        </div>
+    <!-- PIE DE PÁGINA -->
+    <footer class="site-footer">
+        <a href="#inicio" class="logo">
+            Sneak<span>Hub</span><small>.</small>
+        </a>
 
-    </div>
-
-</section>
-<script src="script.js"></script>
+        <p>SNEAKERS · STREETWEAR · CULTURA URBANA</p>
+        <span>© 2026 SneakHub. Proyecto académico.</span>
+        <a href="#inicio" class="volver-arriba">Volver arriba ↑</a>
+    </footer>
 
 </body>
 </html>
