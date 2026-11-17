@@ -37,7 +37,10 @@ app.get("/api/estado", (req, res) => {
 // Conectar MongoDB e iniciar servidor
 async function iniciarServidor() {
   try {
-    await mongoose.connect(process.env.MONGODB_URI);
+    console.log("MONGODB_URI existe:", !!process.env.MONGODB_URI);
+console.log("MONGODB_URI empieza bien:", process.env.MONGODB_URI?.startsWith("mongodb+srv://"));
+
+await mongoose.connect(process.env.MONGODB_URI);
 
     console.log("MongoDB conectado correctamente");
 
